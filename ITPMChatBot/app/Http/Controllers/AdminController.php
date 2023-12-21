@@ -164,8 +164,8 @@ class AdminController extends Controller
     public function deleteExam(Request $request){
         try{
             Exam::where('id',$request->exam_id)->delete();
-            QnaExam::where('exam_id',$request->exam_id)->each()->delete();
-            ExamAttempt::where('exam_id',$request->exam_id)->each()->delete();
+            QnaExam::where('exam_id',$request->exam_id)->delete();
+            ExamAttempt::where('exam_id',$request->exam_id)->delete();
             return response()->json(['success'=>true,'msg'=>'Exam deleted Successfully!']);
             
         } catch(\Exception $e) {
