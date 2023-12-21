@@ -171,12 +171,6 @@
 
     <script>
         $(document).ready(function(){
-            $("#editName").on('input', function(){
-                var getText = $("#editName").val();
-                var toUpperCase = getText.toUpperCase();
-                $("#editName").val(toUpperCase);
-            });
-
             //add User
             $("#addUser").submit(function(e){
                 e.preventDefault();
