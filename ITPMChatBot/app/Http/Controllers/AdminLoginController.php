@@ -77,7 +77,7 @@ class AdminLoginController extends Controller
     //delete Exam
     public function deleteUser(Request $request){
         try{
-            UserEmailRegister::where('id',$request->user_email_register_id)->delete();
+            UserEmailRegister::where('id',$request->user_id)->delete();
 
             return response()->json(['success'=>true,'msg'=>'User deleted Successfully!']);
             } catch(\Exception $e) {
