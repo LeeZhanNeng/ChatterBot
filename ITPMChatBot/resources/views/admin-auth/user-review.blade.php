@@ -130,12 +130,6 @@
 
     <script>
         $(document).ready(function(){
-            $("#name").on('input', function(){
-                var getText = $("#name").val();
-                var toUpperCase = getText.toUpperCase();
-                $("#name").val(toUpperCase);
-            });
-
             //get User Detail
             $(".editButton").click(function () {
                 var id = $(this).attr('data-id');
