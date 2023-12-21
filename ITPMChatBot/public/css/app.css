@@ -1,0 +1,880 @@
+/* General */
+::-webkit-scrollbar {
+    width: .5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #F1F1F1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+}
+
+html {
+    height: 100vh;
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(135deg, rgb(185, 185, 255), rgb(210, 210, 250), rgb(235, 160, 255), rgb(185, 185, 255));
+    min-height: 100vh;
+    width: 100%;
+}
+
+.card {
+    background-color: transparent;
+}
+
+.card#aboutus {
+    background-color: #F8FaFc;
+}
+
+.card#aboutus .card-header, .card#aboutus .card-body {
+    background-color: transparent;
+    padding: 5px 10px;
+}
+
+.multiselect-dropdown{
+    width:100% !important;
+}
+
+.modal-backdrop{
+    background: none;
+    z-index: 0;
+}
+
+/* Layout */
+.background {
+    position: fixed;
+    background: #F5F5F5;
+    min-height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 78px;
+    background: #11101D;
+    padding: 6px 14px;
+    z-index: 99;
+    transition: all 0.35s ease;
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+.sidebar .logo-details {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.sidebar .logo-details .icon {
+    opacity: 0;
+    transition: all 0.35s ease;
+}
+
+.sidebar .logo-details .logoName {
+    background-color: transparent;
+    color: #F8F8F8;
+    width: 0%;
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    cursor: default;
+    transition: all 0.35s ease;
+}
+
+.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details .logoName {
+    opacity: 1;
+}
+
+.sidebar.open .logo-details .logoName {
+    width: fit-content;
+}
+
+.sidebar .logo-details #sidebarbtn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: all 0.4s ease;
+    font-size: 23px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+.sidebar.open .logo-details #sidebarbtn {
+    text-align: right;
+}
+
+.sidebar i {
+    color: #F8F8F8;
+    height: 60px;
+    min-width: 50px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.sidebar .nav-list {
+    margin-top: 20px;
+    height: 100%;
+    padding-left: 0px;
+}
+
+.sidebar li {
+    position: relative;
+    margin: 5px 0;
+    list-style: none;
+}
+
+.sidebar li .item {
+    position: absolute;
+    top: -20px;
+    left: calc(100% + 15px);
+    z-index: 3;
+    background: #F8F8F8;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: 0s;
+}
+
+.sidebar li:hover .item {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sidebar.open li .item {
+    display: none;
+}
+
+.sidebar li a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    background: #11101D;
+}
+
+.sidebar li a:hover {
+    background: #F8F8F8;
+}
+
+.sidebar li a .itemName {
+    color: #F8F8F8;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.sidebar.open li a .itemName {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar li a:hover .itemName,
+.sidebar li a:hover i {
+    transition: all 0.35s ease;
+    color: #11101D;
+}
+
+.sidebar li a:hover i#log_out {
+    transition: all 0.35s ease;
+    color: #F8F8F8;
+}
+
+.sidebar li i {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    border-radius: 12px;
+}
+
+.sidebar li.profile {
+    position: fixed;
+    height: 60px;
+    width: 78px;
+    left: 0;
+    bottom: -8px;
+    padding: 6px 10px;
+    background: #11101D;
+    transition: all 0.35s ease;
+    overflow: hidden;
+}
+
+.sidebar.open li.profile {
+    width: 250px;
+}
+
+.sidebar li .user {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.sidebar li .user i {
+    color: #F8F8F8;
+    height: 45px;
+    width: 45px;
+    font-size: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+    opacity: 0;
+    transition: all 0.35s ease;
+}
+
+.sidebar li .user i {
+    opacity: 1;
+}
+
+
+.sidebar li.profile div.username {
+    width: 0%;
+    opacity: 0;
+    transition: all 0.35s ease;
+}
+
+.sidebar.open li.profile div.username {
+    width: 63.5%;
+    opacity: 1;
+}
+
+.sidebar li.profile input.username {
+    height: 100%;
+    width: 0px;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    background-color: transparent;
+    color: #F8F8F8;
+    white-space: nowrap;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    cursor: default;
+    transition: all 0.35s ease;
+}
+
+.sidebar.open li.profile input.username {
+    width: 150px;
+}
+
+.sidebar .profile #log_out {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: #11101D;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 0px;
+    transition: all 0.35s ease;
+}
+
+.sidebar.open .profile #log_out {
+    width: 50px;
+    background: none;
+}
+
+.section {
+    position: relative;
+    background: #F5F5F5;
+    min-height: 100vh;
+    top: 0;
+    left: 78px;
+    width: calc(100% - 78px);
+    transition: all 0.35s ease;
+    z-index: 2;
+}
+
+.sidebar.open ~ .section {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+/* Chat */
+.users-sidebar {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 250px;
+    background: rgb(235, 235, 235);
+    padding-left: .75rem;
+    padding-right: .75rem;
+    z-index: 99;
+}
+
+.users-sidebar .aichat {
+    position: relative;
+    width: 100%;
+    max-height: 15rem;
+}
+
+.users-sidebar .aichat .chatbot {
+    padding-top: .875rem;
+    line-height: 1.25rem;
+}
+
+.users-sidebar a:hover {
+    background: rgb(215, 215, 215);
+}
+
+.users-sidebar .aichat .chatbot .chatterbot:hover {
+    background: rgb(215, 215, 215);
+}
+
+.users-sidebar .aichat .chatterbot,
+.users-sidebar .users {
+    font-size: 1rem;
+}
+
+.users-sidebar .aichat .chatbot .chatterbot {
+    display: flex;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    height: 2.5rem;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: .5rem;
+}
+
+.users-sidebar .aichat .chatbot .chatterbot i {
+    position: absolute;
+    right: .5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.users-sidebar .aichat .chat-history a div {
+    display: flex;
+    align-items: center;
+}
+
+.users-sidebar .aichat .chat-history i {
+    position: absolute;
+    display: flex;
+    right: .5rem;
+    font-size: 1rem;
+    text-align: center;
+    align-items: center;
+    color: rgb(128,128,128);
+    padding-left: .125rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    opacity: 0;
+}
+
+.users-sidebar .aichat .chat-history a:hover i {
+    opacity: 1;
+}
+
+.users-sidebar .aichat .chat-history i:hover {
+    color: rgb(16, 16, 16);
+    transition: all 0.35s ease;
+}
+
+.users-sidebar .aichat .chat-history.off i {
+    display: none;
+}
+
+.users-sidebar .aichat #actionsMenu{
+    background-color: rgb(215, 215, 215);
+    border: 1px solid rgb(195, 195, 195);
+    border-radius: .5rem;
+}
+
+.users-sidebar .aichat #actionsMenu li{
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: .25rem;
+    padding-right: .25rem;
+}
+
+.users-sidebar .aichat #actionsMenu a {
+    display: flex;
+    padding-left: .25rem;
+    padding-right: .25rem;
+    height: 2rem;
+    width: 6rem;
+    color: inherit;
+    text-decoration: none;
+    align-items: center;
+    background-color: rgb(215, 215, 215);
+    border: 1px solid rgb(215, 215, 215);
+    border-radius: .5rem;
+}
+
+.users-sidebar .aichat #actionsMenu a:hover {
+    background-color: rgb(195, 195, 195);
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: .5rem;
+}
+
+.users-sidebar .aichat #actionsMenu li.danger {
+    color: red;
+}
+
+.users-sidebar .users a,
+.users-sidebar .users a:hover,
+.users-sidebar .users a:link,
+.users-sidebar .users a:visited {
+    display: flex;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    height: 2.5rem;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    border-radius: .5rem;
+}
+
+.users-sidebar .aichat .chat-history a,
+.users-sidebar .aichat .chat-history a:hover,
+.users-sidebar .aichat .chat-history a:link,
+.users-sidebar .aichat .chat-history a:visited {
+    display: flex;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    height: 2.25rem;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    border-radius: .5rem;
+}
+
+.users-sidebar .aichat .chat-history::-webkit-scrollbar-thumb,
+.users-sidebar .users::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+}
+
+.users-sidebar .aichat .chat-history::-webkit-scrollbar-track,
+.users-sidebar .users::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.users-sidebar .aichat .chat-history {
+    border-radius: .5rem;
+    background: rgb(225, 225, 225);
+    font-size: .875rem;
+    overflow-y: auto;
+    max-height: 11.625rem;
+    transition: all 0.35s ease;
+}
+
+.users-sidebar .users {
+    max-height: 0rem;
+    overflow-y: auto;
+}
+
+.users-sidebar .aichat .chat-history ol,
+.users-sidebar .aichat #actionsMenu ol,
+.users-sidebar .users ol {
+    margin: 0px;
+    padding-left: 0px;
+}
+
+.users-sidebar .aichat .chat-history ol li,
+.users-sidebar .aichat #actionsMenu ol li,
+.users-sidebar .users ol li {
+    list-style-type: none;
+}
+
+.users-sidebar .search {
+    position: fixed;
+    bottom: 0%;
+    height: 4rem;
+}
+
+.users-sidebar .search .searchbar {
+    border-width: 1px;
+    border-radius: .25rem;
+    margin-top: .75rem;
+    margin-bottom: .75rem;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    width: 14.125rem;
+    height: 2.5rem;
+}
+
+.users-sidebar .search .searchbar:focus {
+    outline: none;
+}
+
+.chat-section {
+    position: relative;
+    background: #F5F5F5;
+    min-height: 100vh;
+    top: 0;
+    left: 250px;
+    width: calc(100% - 250px);
+    z-index: 2;
+}
+
+.chat-container {
+    position: absolute;
+    top: 2.5rem;
+    height: calc(100vh - 2rem - 4.5rem - 1rem);
+    max-height: calc(100vh - 2rem - 4.5rem - 1rem);
+    width: 100%;
+    padding: 8px 20px 8px 30px;
+    z-index: 99;
+    overflow-y: auto;
+}
+
+.chat-container div.receive{
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    width: 100%;
+    float: left;
+}
+
+.chat-container div.send{
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    width: 100%;
+    float: right;
+}
+
+.chat-container div.receive div.message{
+    position: relative;
+    display: block;
+    border-radius: 1.5rem;
+    background-color: rgb(235, 235, 235);
+    max-width: 80%;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    float: left;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.chat-container div.send div.message{
+    position: relative;
+    display: block;
+    border-radius: 1.5rem;
+    background-color: #20a0ff;
+    max-width: 80%;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    float: right;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.scrollToggleButton {
+    position: absolute;
+    top: calc(100% - 3.5rem);
+    left: calc(50% - 1rem);
+    display: flex;
+    background: rgb(225, 225, 225);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.35s ease;
+    z-index: 99;
+}
+
+.scrollToggleButton.showed {
+    top: calc(100% - 7.5rem);
+    z-index: 99;
+}
+
+.scrollToggleButton:hover {
+    background: rgb(205, 205, 205);
+}
+
+.chat {
+    position: absolute;
+    top: calc(100% - 5rem);
+    height: 3.5rem;
+    max-height: 12.5rem;
+    width: 100%;
+    margin: .75rem 0rem;
+    padding-left: 1.875rem;
+    padding-right: 1.875rem;
+    z-index: 99;
+}
+
+.chat button#stt{
+    position: absolute;
+    background-color: transparent;
+    bottom: .75rem;
+    right: calc(30px + 2rem + .75rem);
+    height: 2rem;
+    width: 2rem;
+    padding-top: 2px;
+    font-size: 20px;
+    object-fit: cover;
+    border: none;
+}
+
+.chat button#send{
+    position: absolute;
+    background-color: transparent;
+    bottom: .75rem;
+    right: calc(30px + .75rem);
+    height: 2rem;
+    width: 2rem;
+    padding-top: 2px;
+    font-size: 20px;
+    object-fit: cover;
+    border: none;
+}
+
+.chat .message {
+    position: relative;
+    bottom: 0px;
+    height: 3.5rem;
+    max-height: 12.5rem;
+    width: 100%;
+    padding-top: .95rem;
+    padding-left: 1rem;
+    padding-bottom: .95rem;
+    padding-right: 5rem;
+    border-radius: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    resize: none;
+    outline: none;
+    font-size: .875rem;
+    line-height: 1.5rem;
+}
+
+/* Lecturer */
+.student {
+    min-height: 100vh;
+}
+
+.student p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: .625rem 1.5rem;
+    color: #212529;
+    margin: 0px;
+}
+
+.student button {
+    margin: .625rem 1.5rem;
+}
+
+.student table button {
+    margin: 0px;
+}
+
+.student table {
+    margin: .625rem 1.5rem;
+    width: calc(100% - 3rem);
+    color: #212529;
+    border: 1px solid #DEDEDE;
+    border-radius: .75rem;
+}
+
+.student table thead th{
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid #DEDEDE;
+    color: #212529;
+}
+
+.student table tbody tr {
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid #DEDEDE;
+    color: #212529;
+}
+
+.student table td {
+    padding-left: .5rem;
+    padding-right: .5rem;
+    border: 1px solid #DEDEDE;
+}
+
+/* Lecturer */
+.lecturer {
+    min-height: 100vh;
+}
+
+.lecturer p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: .625rem 1.5rem;
+    color: #212529;
+    margin: 0px;
+}
+
+.lecturer button {
+    margin: .625rem 1.5rem;
+}
+
+.lecturer table button {
+    margin: 0px;
+}
+
+.lecturer table {
+    margin: .625rem 1.5rem;
+    width: calc(100% - 3rem);
+    color: #212529;
+    border: 1px solid #DEDEDE;
+    border-radius: .75rem;
+}
+
+.lecturer table thead th{
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid #DEDEDE;
+    color: #212529;
+}
+
+.lecturer table tbody tr {
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid #DEDEDE;
+    color: #212529;
+}
+
+.lecturer table td {
+    padding-left: .5rem;
+    padding-right: .5rem;
+    border: 1px solid #DEDEDE;
+}
+
+/* Admin */
+.admin {
+    min-height: 100vh;
+}
+
+.admin p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: .625rem 1.5rem;
+    color: #212529;
+    margin: 0px;
+}
+
+.admin button {
+    margin: .625rem 1.5rem;
+}
+
+.admin table button {
+    margin: 0px;
+}
+
+.admin table {
+    margin: .625rem 1.5rem;
+    width: calc(100% - 3rem);
+    color: #212529;
+    border: 1px solid #DEDEDE;
+    border-radius: .75rem;
+}
+
+.admin table thead th{
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid #DEDEDE;
+    color: #212529;
+}
+
+.admin table tbody tr {
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid #DEDEDE;
+    color: #212529;
+}
+
+.admin table td {
+    padding-left: .5rem;
+    padding-right: .5rem;
+    border: 1px solid #DEDEDE;
+}
+
+/* Image Modal */
+#imageModal{
+    margin: auto;
+    background-color: transparent;
+    border-color: transparent;
+    max-width: 100%;
+    min-height: 100vh;
+}
+
+#imageModal .modal-content{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+/* Current View */
+@media (max-width: 768px) {
+    .sidebar,
+    .users-sidebar {
+        display: none;
+    }
+
+    .section,
+    .chat-section {
+        left: 0;
+        width: 100%;
+        transition: none;
+    }
+}
