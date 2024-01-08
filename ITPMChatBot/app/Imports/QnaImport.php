@@ -20,7 +20,8 @@ class QnaImport implements ToModel
         if($row[0] != 'question'){
 
             $questionId = Question::insertGetId([
-                'question' => $row[0]
+                'question' => $row[0],
+                'image' => "empty.jpg"
             ]);
 
             for($i = 1; $i < count($row)-1; $i++){
